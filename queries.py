@@ -111,3 +111,6 @@ if __name__ == '__main__':
     print(Author.objects.none())
     from django.db.models.query import EmptyQuerySet
     print(isinstance(Entry.objects.none(), EmptyQuerySet))
+
+    # all() => a copy of current QuerySet or QuerySet subclass
+    print(Author.objects.all())
