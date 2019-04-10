@@ -6,7 +6,7 @@ django.setup()
 
 from django.db.models import Count
 
-from blog.models import Entry, Blog
+from blog.models import Entry, Blog, Author
 
 if __name__ == '__main__':
     b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
@@ -46,7 +46,17 @@ if __name__ == '__main__':
     print(q[0].entry__count)
 
 
-    # order_by() 
-    print(Entry.objects.all().order_by('pub_date'))
+    # order_by()
+    print(Entry.objects.all().order_by('rating'))
+
+    print('*****ordering by field in another model*****')
+    print(Entry.objects.all().order_by('-blog__id'))
+
+    # Using reverse()
+    print(Entry.objects.reverse()[:2])
 
 
+    # using distinct()
+    print(Author.objects.distinct())
+
+    print(Entry.objects.order_by('pub_date').distinct('pub_date'))
