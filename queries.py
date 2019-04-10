@@ -13,4 +13,9 @@ if __name__ == '__main__':
     for e in Entry.objects.all():
         print(e.headline)
 
+    entry_list = list(Entry.objects.all())
+    print(entry_list)
+
+    print(len(Entry.objects.all()))
+
 
