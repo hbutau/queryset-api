@@ -18,4 +18,9 @@ if __name__ == '__main__':
 
     print(len(Entry.objects.all()))
 
+    if Entry.objects.filter(headline="London Tour"):
+           print("There is at least one Entry with the headline London Tour")
+
+    print(Entry.objects.all()[:2])
+
 
