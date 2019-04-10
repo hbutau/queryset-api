@@ -28,7 +28,12 @@ if __name__ == '__main__':
     # Finding the number of records
     print(Entry.objects.count())
 
+    # Checking for results with exists()
     if Entry.objects.all().filter(headline="London Tour").exists():
         print("The London Tour is present")
+
+    # exclude()- Returns a new Queryset that has objects that dont match the given kwargs
+    #
+    print(Entry.objects.exclude(headline="London Tour"))
 
 
