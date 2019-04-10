@@ -114,3 +114,8 @@ if __name__ == '__main__':
 
     # all() => a copy of current QuerySet or QuerySet subclass
     print(Author.objects.all())
+
+    # union(*other_qs, all=False)
+    qs1 = Author.objects.values_list('name') 
+    qs2 = Author.objects.values_list('email') 
+    print(qs1.union(qs2).order_by('name')) 
