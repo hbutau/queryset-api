@@ -9,8 +9,8 @@ from django.db.models import Count
 from blog.models import Entry, Blog, Author
 
 if __name__ == '__main__':
-    b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
-    b.save()
+    # b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
+    # b.save()
 
     for e in Entry.objects.all():
         print(e.headline)
@@ -57,6 +57,22 @@ if __name__ == '__main__':
 
 
     # using distinct()
-    print(Author.objects.distinct())
+    # print(Author.objects.distinct())
 
-    print(Entry.objects.order_by('pub_date').distinct('pub_date'))
+    # not supported on sqlite
+    # print(Entry.objects.order_by('pub_date').distinct('pub_date'))
+
+
+    q = Author.objects.values()
+    print('*****selecting the list of dicts*****')
+    print(q)
+    print('*****selecting the first dict*****')
+    print(q[0]) #selects the first dict in in the queryset
+    print(Author.objects.values('email'))
+
+    from django.db.models.functions import Lower
+    print(Author.objects.values(lower_name=Lower('name')))
+
+    print(Entry.objects.values('blog'))
+    print(Entry.objects.values('blog_id'))
+
