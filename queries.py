@@ -95,3 +95,13 @@ if __name__ == '__main__':
     # getting a specific field value og a certain instance values_list >> .get()
     print(Blog.objects.values_list('tagline', flat=True).get(pk=54))
     print(Author.objects.values_list('name', flat=True).get(pk=1))
+
+
+    # dates(field, kind, order='ASC')
+    print(Entry.objects.dates('pub_date', 'year'))
+    print(Entry.objects.dates('pub_date', 'month'))
+    print(Entry.objects.dates('pub_date', 'week'))
+    print(Entry.objects.dates('pub_date', 'day'))
+    print(Entry.objects.dates('pub_date', 'day', order='DESC'))
+    print(Entry.objects.filter(headline__contains='London').dates('pub_date', 'day'))
+
