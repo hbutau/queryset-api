@@ -46,3 +46,7 @@ if __name__ == '__main__':
     print(q[0].entry__count)
 
 
+    # order_by() 
+    print(Entry.objects.all().order_by('pub_date'))
+
+
