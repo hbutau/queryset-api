@@ -74,5 +74,24 @@ if __name__ == '__main__':
     print(Author.objects.values(lower_name=Lower('name')))
 
     print(Entry.objects.values('blog'))
+    
     print(Entry.objects.values('blog_id'))
 
+    # values_list returns tuple of fields or expressions
+    print(Author.objects.values_list('email', 'name'))
+
+
+    from django.db.models.functions import Lower
+
+    print(Entry.objects.values_list('blog_id', Lower('headline')))
+
+    # passing flat to values_list returns singgle value rather  than a one tuple
+    print(Author.objects.values_list('name', flat=True))
+
+
+    # getting results as a named tuple
+    print(Author.objects.values_list('id', 'name', named=True))
+
+    # getting a specific field value og a certain instance values_list >> .get()
+    print(Blog.objects.values_list('tagline', flat=True).get(pk=54))
+    print(Author.objects.values_list('name', flat=True).get(pk=1))
