@@ -116,6 +116,10 @@ if __name__ == '__main__':
     print(Author.objects.all())
 
     # union(*other_qs, all=False)
-    qs1 = Author.objects.values_list('name') 
-    qs2 = Author.objects.values_list('email') 
-    print(qs1.union(qs2).order_by('name')) 
+    qs1 = Entry.objects.values_list('headline') 
+    qs2 = Entry.objects.values_list('body_text') 
+    print(qs1.union(qs2).order_by('headline')) 
+
+
+    # intersection(*other_qs)
+    print(qs1.intersection(qs2)) 
