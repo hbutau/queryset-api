@@ -74,7 +74,7 @@ if __name__ == '__main__':
     print(Author.objects.values(lower_name=Lower('name')))
 
     print(Entry.objects.values('blog'))
-    
+
     print(Entry.objects.values('blog_id'))
 
     # values_list returns tuple of fields or expressions
@@ -105,3 +105,9 @@ if __name__ == '__main__':
     print(Entry.objects.dates('pub_date', 'day', order='DESC'))
     print(Entry.objects.filter(headline__contains='London').dates('pub_date', 'day'))
 
+    # datetimes(field_name, kind, order='ASC', tzinfo=None)
+
+    # none() ->>> qs that nerver returns andy objects >> no query executed >> instance of EmptyQueryset
+    print(Author.objects.none())
+    from django.db.models.query import EmptyQuerySet
+    print(isinstance(Entry.objects.none(), EmptyQuerySet))
