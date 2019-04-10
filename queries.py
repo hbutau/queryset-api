@@ -23,4 +23,6 @@ if __name__ == '__main__':
 
     print(Entry.objects.all()[:2])
 
+    print(repr(Entry.objects.all()))
+
 
