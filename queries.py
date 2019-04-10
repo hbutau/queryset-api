@@ -4,6 +4,8 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "querysets.settings")
 import django
 django.setup()
 
+from django.db.models import Count
+
 from blog.models import Entry, Blog
 
 if __name__ == '__main__':
@@ -35,5 +37,12 @@ if __name__ == '__main__':
     # exclude()- Returns a new Queryset that has objects that dont match the given kwargs
     #
     print(Entry.objects.exclude(headline="London Tour"))
+
+    q = Blog.objects.annotate(Count('entry'))
+    print(q)
+    # print the name of the first blog
+    print(q[0].name)
+    # The number of entries on the first blog
+    print(q[0].entry__count)
 
 
