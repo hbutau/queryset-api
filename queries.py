@@ -25,6 +25,10 @@ if __name__ == '__main__':
 
     print(repr(Entry.objects.all()))
 
+    # Finding the number of records
     print(Entry.objects.count())
+
+    if Entry.objects.all().filter(headline="London Tour").exists():
+        print("The London Tour is present")
 
 
