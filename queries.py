@@ -340,3 +340,6 @@ if __name__ == '__main__':
     
     # gte greater than or equal to 
     print(Author.objects.filter(id__gte=1))
+    
+    # lt  => less than
+    print(Author.objects.filter(id__lt=4))
