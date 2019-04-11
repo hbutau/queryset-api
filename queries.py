@@ -201,3 +201,7 @@ if __name__ == '__main__':
     q = Entry.objects.extra(select={'is_recent': "pub_date > '2006-01-01'"})
     q = q.extra(order_by = ['-is_recent'])
     print(q)
+
+
+    # Using defer() => pass fields that we dont want to load
+    print(Entry.objects.defer("headline"))
