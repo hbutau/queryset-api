@@ -222,3 +222,12 @@ if __name__ == '__main__':
     # Using using(alias) => specifyin which db the QuerySet will be used with
     # print(Entry.objects.using('db.sqlite3'))
 
+
+    # select_for_update(nowait=False,skip_locked=False,of=0) returns a qs thant locks rows till end of txn
+    from django.db import transaction
+
+    entries = Entry.objects.select_for_update().filter(author=request.user)
+    with transaction.atomic():
+        for entry in entries:
+            print(entry)
+
