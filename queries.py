@@ -391,5 +391,7 @@ if __name__ == '__main__':
     # quarter
     print(Entry.objects.filter(pub_date__quarter=2))
 
+    # time
+    print(Entry.objects.filter(pub_date__time=datetime.time(14, 30)))
 
 
