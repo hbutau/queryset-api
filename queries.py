@@ -160,3 +160,6 @@ if __name__ == '__main__':
 
     # Providing a custom qs with the optional queryset arg => to change default ordering
     print(Restaurant.objects.prefetch_related(Prefetch('pizzas__toppings', queryset=Topping.objects.order_by('name'))))
+
+    # Or even call select_related() to reduce the number of queries
+    print(Pizza.objects.prefetch_related(Prefetch('restaurants', queryset=Restaurant.objects.select_related('best_pizza'))))
