@@ -304,3 +304,7 @@ if __name__ == '__main__':
     if Author.objects.filter(name='Lois Butau').exists():
         print('Lois is present')
 
+
+    # update(**kwargs) => performs SQL update query for specified fields and returns number of rows matched
+    print(Author.objects.filter(name='Lois Butau').update(name='Linda Butau'))
+
