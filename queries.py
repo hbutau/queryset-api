@@ -163,3 +163,12 @@ if __name__ == '__main__':
 
     # Or even call select_related() to reduce the number of queries
     print(Pizza.objects.prefetch_related(Prefetch('restaurants', queryset=Restaurant.objects.select_related('best_pizza'))))
+
+
+    # passing the prefetched result to a custom attr using => to_attr => []
+    vegetarian_pizzas = Pizza.objects.filter(restaurants=True)
+    print(Restaurant.objects.prefetch_related(
+        Prefetch('pizzas', to_attr='menu'),
+        Prefetch('pizzas', queryset=vegetarian_pizzas,
+        to_attr='vegetarian_menu'),
+        'vegetarian_menu__toppings'))
