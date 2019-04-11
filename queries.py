@@ -190,3 +190,5 @@ if __name__ == '__main__':
 
     # using select to add more to SELECT sql clause
     print(Entry.objects.extra(select={'is_recent': "pub_date > '2006-01-01'"}))
+
+    print(Blog.objects.extra(select={'entry_count': 'SELECT COUNT(*) FROM blog_entry WHERE blog_entry.blog_id = blog_blog.id'},))
