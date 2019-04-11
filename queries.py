@@ -8,7 +8,7 @@ django.setup()
 from django.db.models import Count
 
 from blog.models import Entry, Blog, Author
-from pizza.models import Topping, Pizza
+from pizza.models import Topping, Pizza, Restaurant, Topping
 
 
 if __name__ == '__main__':
@@ -146,6 +146,17 @@ if __name__ == '__main__':
 
 
 
-    # prefetch_related(*lookups) => similar to above but for many_to_one and One_to_one
+    # prefetch_related(*lookups) => similar to above but not for many_to_one and One_to_one
+    # returns a qs that witll automatically retrieve in a single batch related obs of the specified lkp
     print(Pizza.objects.all())
     print(Pizza.objects.all().prefetch_related('toppings'))
+
+    print(Restaurant.objects.select_related('best_pizza').prefetch_related('best_pizza__toppings'))
+
+    from django.db.models import Prefetch
+    # using prefetch object to control prefetch operation
+    print(Restaurant.objects.prefetch_related(Prefetch('pizzas__toppings')))
+
+
+    # Providing a custom qs with the optional queryset arg => to change default ordering
+    print(Restaurant.objects.prefetch_related(Prefetch('pizzas__toppings', queryset=Topping.objects.order_by('name'))))
