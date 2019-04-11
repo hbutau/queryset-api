@@ -141,3 +141,7 @@ if __name__ == '__main__':
     print(Entry.objects.select_related('blog').filter(pub_date__lt=timezone.now()))
     # without specifying field also pulls data
     print(Entry.objects.select_related().filter(pub_date__lt=timezone.now()))
+
+
+
+    # prefetch_related(*lookups) => similar to above but for many_to_one and One_to_one
