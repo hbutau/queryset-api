@@ -371,6 +371,10 @@ if __name__ == '__main__':
     # Entry.objects.filter(pub_date__date=datetime.date(2019, 4, 11))
 
     # year
-    Entry.objects.filter(pub_date__year=2019)
+    print(Entry.objects.filter(pub_date__year=2019))
+
+    # month
+    print(Entry.objects.filter(pub_date__month=4))
+
 
 
