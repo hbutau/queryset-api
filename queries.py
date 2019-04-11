@@ -257,3 +257,15 @@ if __name__ == '__main__':
             name='Examplse User',
             email='eg@gmail.com'
             )
+
+    print(obj, created)
+
+
+    # update_or_create(defaults=None, **kwargs) => for updating an object with given kwargs
+    #
+    obj, created = Author.objects.update_or_create(
+            name='Example User',
+            defaults={'name': 'New User'}
+            )
+
+    print(obj, created)
