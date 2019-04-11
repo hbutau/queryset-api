@@ -384,9 +384,12 @@ if __name__ == '__main__':
     print(Entry.objects.filter(pub_date__week=52))
 
 
-   # week_day
-   print(Entry.objects.filter(pub_date__week_day=2))
-   print(Entry.objects.filter(pub_date__week_day__gte=2))
+    # week_day
+    print(Entry.objects.filter(pub_date__week_day=2))
+    print(Entry.objects.filter(pub_date__week_day__gte=2))
+
+    # quarter
+    print(Entry.objects.filter(pub_date__quarter=2))
 
 
 
