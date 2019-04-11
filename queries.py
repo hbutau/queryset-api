@@ -2,6 +2,7 @@ import os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "querysets.settings")
 import django
+import pytest
 django.setup()
 
 from django.db.models import Count
@@ -12,7 +13,7 @@ if __name__ == '__main__':
     # b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
     # b.save()
 
-    for e in Entry.objects.all():
+    for e  in Entry.objects.all():
         print(e.headline)
 
     entry_list = list(Entry.objects.all())
@@ -127,6 +128,16 @@ if __name__ == '__main__':
     # difference(*other_qs) => EXCEPT keep only elements in the QS but not in some othrQS
     print(qs1.difference(qs2))
 
-
     # select_related(*fields) => qs tha will follow FK relationships
+    # def test_select_related():
+        # assert 'Beatles in Chicage' in Entry.objects.select_related('blog').get(id=4)
+
     print(Entry.objects.select_related('blog').get(id=4))
+
+    from django.utils import timezone
+    blogs = set()
+
+    print(Entry.objects.filter(pub_date__lt=timezone.now()).select_related('blog'))
+    print(Entry.objects.select_related('blog').filter(pub_date__lt=timezone.now()))
+    # without specifying field also pulls data
+    print(Entry.objects.select_related().filter(pub_date__lt=timezone.now()))
