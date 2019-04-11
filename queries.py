@@ -322,3 +322,7 @@ if __name__ == '__main__':
 
     # iexact() => case insensitive exact match
     print(Author.objects.get(email__iexact='LOIS@GMAIL.COM'))
+
+
+    # case senditive containment test
+    print(Author.objects.get(email__contains='lois@gmail.com'))
