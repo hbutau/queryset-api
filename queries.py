@@ -368,5 +368,9 @@ if __name__ == '__main__':
 
 
     # date takes a date value
-    Entry.objects.filter(pub_date__date=datetime.date(2019, 4, 11))
+    # Entry.objects.filter(pub_date__date=datetime.date(2019, 4, 11))
+
+    # year
+    Entry.objects.filter(pub_date__year=2019)
+
 
