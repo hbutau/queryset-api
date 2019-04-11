@@ -8,6 +8,8 @@ django.setup()
 from django.db.models import Count
 
 from blog.models import Entry, Blog, Author
+from pizza.models import Topping, Pizza
+
 
 if __name__ == '__main__':
     # b = Blog(name='Beatles Blog', tagline='All the latest Beatles news.')
@@ -145,3 +147,5 @@ if __name__ == '__main__':
 
 
     # prefetch_related(*lookups) => similar to above but for many_to_one and One_to_one
+    print(Pizza.objects.all())
+    print(Pizza.objects.all().prefetch_related('toppings'))
