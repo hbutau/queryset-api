@@ -243,3 +243,7 @@ if __name__ == '__main__':
    # OR(I) combining 2 Queryset
 
     print(Author.objects.filter(Q(email='lois@gmail') | Q(email='hbutau@example.com')))
+
+
+    # get(**kwargs) => returns an obj matchin the lookups given
+    print(Author.objects.get(email='lois@gmail.com'))
