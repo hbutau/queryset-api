@@ -275,3 +275,7 @@ if __name__ == '__main__':
         Author(name='Bob Marley'),
         Author(name='Rita Marley'),
         ])
+
+
+    # count() =>returns an interger representing the number of objects in the datatbase matching the QS
+    print(Author.objects.filter(name='Humphrey Butau').count())
