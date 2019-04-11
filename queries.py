@@ -298,3 +298,9 @@ if __name__ == '__main__':
     print(Blog.objects.aggregate(Count('entry')))
     # controllling the name of of aggregation value by using a **kwarg
     print(Blog.objects.aggregate(number_of_entries=Count('entry')))
+
+
+    # exists()
+    if Author.objects.filter(name='Lois Butau').exists():
+        print('Lois is present')
+
