@@ -356,7 +356,7 @@ if __name__ == '__main__':
 
     # endswith => ends with
     print(Blog.objects.filter(name__endswith='log'))
-    
+
     # iendswith => case nssensitive ends with
     print(Blog.objects.filter(name__iendswith='Log'))
 
@@ -365,3 +365,8 @@ if __name__ == '__main__':
     start_date = datetime.date(2019, 4, 10)
     end_date = datetime.date(2005, 4, 11)
     print(Entry.objects.filter(pub_date__range=(start_date, end_date)))
+
+
+    # date takes a date value
+    Entry.objects.filter(pub_date__date=datetime.date(2019, 4, 11))
+
