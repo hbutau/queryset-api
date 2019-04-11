@@ -351,3 +351,7 @@ if __name__ == '__main__':
 
     # startswith
     print(Blog.objects.filter(name__startswith='Beat'))
+    
+    
+    # istartswith => case insensitive starts-with
+    print(Blog.objects.filter(name__istartswith='BEAT'))
