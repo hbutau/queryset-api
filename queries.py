@@ -209,3 +209,8 @@ if __name__ == '__main__':
 
     # making multiple calls with defer
     print(Entry.objects.defer("pub_date").filter(rating=5).defer("headline"))
+
+
+    # defering loading of fields in related models => select_related
+    print(Blog.objects.select_related().defer("entry__headline", "entry__pub_date"))
+
