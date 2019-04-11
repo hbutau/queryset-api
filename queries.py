@@ -251,3 +251,9 @@ if __name__ == '__main__':
     # Creating and saving an object in one go with create(**kwargs)
     # me = Author.objects.create(email='me@example.com', name='Me Example')
     print(Author.objects.get(email='me@example.com'))
+
+    # using get_or_create()
+    obj, created = Author.objects.get_or_create(
+            name='Examplse User',
+            email='eg@gmail.com'
+            )
