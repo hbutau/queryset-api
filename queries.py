@@ -333,3 +333,7 @@ if __name__ == '__main__':
 
     # in => in a given iterable 
     print(Author.objects.filter(id__in=[1,2,3]))
+
+
+    # gt greater than
+    print(Author.objects.filter(id__gt=1))
