@@ -224,10 +224,17 @@ if __name__ == '__main__':
 
 
     # select_for_update(nowait=False,skip_locked=False,of=0) returns a qs thant locks rows till end of txn
-    from django.db import transaction
+    # from django.db import transaction
 
-    entries = Entry.objects.select_for_update().filter(author=request.user)
-    with transaction.atomic():
-        for entry in entries:
-            print(entry)
+    # entries = Entry.objects.select_for_update().filter(author=request.user)
+    # with transaction.atomic():
+        # for entry in entries:
+            # print(entry)
 
+
+    # raw() => Takes a raw SQL query executes it and returns RawQueryset instance
+
+    # AND
+
+    from django.db.models import Q
+    print(Author.objects.filter(Q(name='Lois Butau') & Q(email='lois@gmail.com')))
