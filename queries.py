@@ -7,6 +7,7 @@ import pytest
 django.setup()
 
 from django.db.models import Count
+from django.db.models import Q
 
 from blog.models import Entry, Blog, Author
 from pizza.models import Topping, Pizza, Restaurant, Topping
@@ -236,5 +237,9 @@ if __name__ == '__main__':
 
     # AND
 
-    from django.db.models import Q
     print(Author.objects.filter(Q(name='Lois Butau') & Q(email='lois@gmail.com')))
+
+
+   # OR(I) combining 2 Queryset
+
+    print(Author.objects.filter(Q(email='lois@gmail') | Q(email='hbutau@example.com')))
