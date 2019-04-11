@@ -326,6 +326,10 @@ if __name__ == '__main__':
 
     # case senditive containment test
     print(Author.objects.get(email__contains='lois@gmail.com'))
-    
+
     # case insensitive containment test
     print(Author.objects.get(email__contains='LOIS@GMAIL.COM'))
+
+
+    # in => in a given iterable 
+    print(Author.objects.filter(id__in=[1,2,3]))
