@@ -279,3 +279,7 @@ if __name__ == '__main__':
 
     # count() =>returns an interger representing the number of objects in the datatbase matching the QS
     print(Author.objects.filter(name='Humphrey Butau').count())
+    print(len(Author.objects.filter(name='Humphrey Butau')))
+
+    # in_bulk(id_list=None, field_name='pk') => takes list of field values and field_name returns dict
+    print(Author.objects.in_bulk([1, 2]))
