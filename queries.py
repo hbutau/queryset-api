@@ -219,5 +219,6 @@ if __name__ == '__main__':
     # using only to defer other fields
     print(Entry.objects.only("rating").only("headline"))
 
-
+    # Using using(alias) => specifyin which db the QuerySet will be used with
+    # print(Entry.objects.using('db.sqlite3'))
 
