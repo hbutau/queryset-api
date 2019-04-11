@@ -380,5 +380,9 @@ if __name__ == '__main__':
     # day
     print(Entry.objects.filter(pub_date__day=10))
 
+    # week
+    print(Entry.objects.filter(pub_date__week=52))
+
+
 
 
