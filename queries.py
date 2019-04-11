@@ -314,3 +314,7 @@ if __name__ == '__main__':
 
     # using explain() returns a str of QS execution plan detailing how the db would do the query
     print(Author.objects.filter(name='Linda Butau').explain())
+
+
+    # exact() => exact match
+    print(Author.objects.get(email__exact='lois@gmail.com'))
