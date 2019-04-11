@@ -1,3 +1,4 @@
+import datetime
 import os
 from collections import OrderedDict
 
@@ -358,3 +359,9 @@ if __name__ == '__main__':
     
     # iendswith => case nssensitive ends with
     print(Blog.objects.filter(name__iendswith='Log'))
+
+
+    # range => range test inclusive
+    start_date = datetime.date(2019, 4, 10)
+    end_date = datetime.date(2005, 4, 11)
+    print(Entry.objects.filter(pub_date__range=(start_date, end_date)))
