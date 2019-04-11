@@ -1,4 +1,5 @@
 import os
+from collections import OrderedDict
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "querysets.settings")
 import django
@@ -192,3 +193,11 @@ if __name__ == '__main__':
     print(Entry.objects.extra(select={'is_recent': "pub_date > '2006-01-01'"}))
 
     print(Blog.objects.extra(select={'entry_count': 'SELECT COUNT(*) FROM blog_entry WHERE blog_entry.blog_id = blog_blog.id'},))
+
+    # using select_params
+    print(Blog.objects.extra(select=OrderedDict([('a', '%s'), ('b', '%s')]), select_params=('one', 'two')))
+
+    # Using order_by with extra()
+    q = Entry.objects.extra(select={'is_recent': "pub_date > '2006-01-01'"})
+    q = q.extra(order_by = ['-is_recent'])
+    print(q)
