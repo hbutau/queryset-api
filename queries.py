@@ -308,3 +308,5 @@ if __name__ == '__main__':
     # update(**kwargs) => performs SQL update query for specified fields and returns number of rows matched
     print(Author.objects.filter(name='Lois Butau').update(name='Linda Butau'))
 
+    # delete() => performs a SQL delete on all rows in QS and returns number of objs deleted
+    print(Author.objects.filter(name='Humphrey Butau').delete())
