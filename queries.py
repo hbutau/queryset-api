@@ -318,3 +318,7 @@ if __name__ == '__main__':
 
     # exact() => exact match
     print(Author.objects.get(email__exact='lois@gmail.com'))
+
+
+    # iexact() => case insensitive exact match
+    print(Author.objects.get(email__iexact='LOIS@GMAIL.COM'))
