@@ -347,3 +347,7 @@ if __name__ == '__main__':
     
     # lte  => less than or eqaul to
     print(Author.objects.filter(id__lte=4))
+
+
+    # startswith
+    print(Blog.objects.filter(name__startswith='Beat'))
