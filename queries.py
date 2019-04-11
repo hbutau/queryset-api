@@ -205,3 +205,7 @@ if __name__ == '__main__':
 
     # Using defer() => pass fields that we dont want to load
     print(Entry.objects.defer("headline"))
+
+
+    # making multiple calls with defer
+    print(Entry.objects.defer("pub_date").filter(rating=5).defer("headline"))
