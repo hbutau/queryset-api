@@ -337,3 +337,6 @@ if __name__ == '__main__':
 
     # gt greater than
     print(Author.objects.filter(id__gt=1))
+    
+    # gte greater than or equal to 
+    print(Author.objects.filter(id__gte=1))
