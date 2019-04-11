@@ -326,3 +326,6 @@ if __name__ == '__main__':
 
     # case senditive containment test
     print(Author.objects.get(email__contains='lois@gmail.com'))
+    
+    # case insensitive containment test
+    print(Author.objects.get(email__contains='LOIS@GMAIL.COM'))
