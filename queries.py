@@ -377,4 +377,8 @@ if __name__ == '__main__':
     print(Entry.objects.filter(pub_date__month=4))
 
 
+    # day
+    print(Entry.objects.filter(pub_date__day=10))
+
+
 
