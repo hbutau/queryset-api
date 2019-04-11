@@ -287,3 +287,10 @@ if __name__ == '__main__':
 
     # latest(*fields) => returns the latest obj in table based on fields
     print(Entry.objects.latest('pub_date'))
+
+
+    # earliest(*fields) => works like latest bust with change of direction
+
+    # first() => returns first obj matched by the QS
+    #  
+    print(Entry.objects.order_by('authors', 'pub_date').first())
