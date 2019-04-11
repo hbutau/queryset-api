@@ -343,3 +343,7 @@ if __name__ == '__main__':
     
     # lt  => less than
     print(Author.objects.filter(id__lt=4))
+    
+    
+    # lte  => less than or eqaul to
+    print(Author.objects.filter(id__lte=4))
