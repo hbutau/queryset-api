@@ -214,3 +214,10 @@ if __name__ == '__main__':
     # defering loading of fields in related models => select_related
     print(Blog.objects.select_related().defer("entry__headline", "entry__pub_date"))
 
+
+    # more like the opposite of defer(). only(*fiels)
+    # using only to defer other fields
+    print(Entry.objects.only("rating").only("headline"))
+
+
+
