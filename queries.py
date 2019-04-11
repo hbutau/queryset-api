@@ -124,5 +124,9 @@ if __name__ == '__main__':
     # intersection(*other_qs)
     print(qs1.intersection(qs2))
 
-    # difference(*other_qs)
+    # difference(*other_qs) => EXCEPT keep only elements in the QS but not in some othrQS
     print(qs1.difference(qs2))
+
+
+    # select_related(*fields) => qs tha will follow FK relationships
+    print(Entry.objects.select_related('blog').get(id=4))
