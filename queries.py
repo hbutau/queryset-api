@@ -172,3 +172,7 @@ if __name__ == '__main__':
         Prefetch('pizzas', queryset=vegetarian_pizzas,
         to_attr='vegetarian_menu'),
         'vegetarian_menu__toppings'))
+
+
+    # lkups created with custom to_attr can be used by other lookups
+    print(Restaurant.objects.prefetch_related(Prefetch('pizzas', queryset=vegetarian_pizzas, to_attr='vegetarian_menu'), 'vegetarian_menu__toppings'))
