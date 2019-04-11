@@ -99,7 +99,7 @@ if __name__ == '__main__':
 
     # getting a specific field value og a certain instance values_list >> .get()
     print(Blog.objects.values_list('tagline', flat=True).get(pk=54))
-    print(Author.objects.values_list('name', flat=True).get(pk=1))
+    # print(Author.objects.values_list('name', flat=True).get(pk=1))
 
 
     # dates(field, kind, order='ASC')
@@ -309,4 +309,8 @@ if __name__ == '__main__':
     print(Author.objects.filter(name='Lois Butau').update(name='Linda Butau'))
 
     # delete() => performs a SQL delete on all rows in QS and returns number of objs deleted
-    print(Author.objects.filter(name='Humphrey Butau').delete())
+    # print(Author.objects.filter(name='Humphrey Butau').delete())
+
+
+    # using explain() returns a str of QS execution plan detailing how the db would do the query
+    print(Author.objects.filter(name='Linda Butau').explain())
