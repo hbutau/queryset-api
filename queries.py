@@ -269,3 +269,9 @@ if __name__ == '__main__':
             )
 
     print(obj, created)
+
+    # bulk_create() => inserts the provided list of objs with one query.
+    Author.objects.bulk_create([
+        Author(name='Bob Marley'),
+        Author(name='Rita Marley'),
+        ])
