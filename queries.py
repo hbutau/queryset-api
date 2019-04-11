@@ -247,3 +247,7 @@ if __name__ == '__main__':
 
     # get(**kwargs) => returns an obj matchin the lookups given
     print(Author.objects.get(email='lois@gmail.com'))
+
+    # Creating and saving an object in one go with create(**kwargs)
+    # me = Author.objects.create(email='me@example.com', name='Me Example')
+    print(Author.objects.get(email='me@example.com'))
