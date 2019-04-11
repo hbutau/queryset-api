@@ -283,3 +283,7 @@ if __name__ == '__main__':
 
     # in_bulk(id_list=None, field_name='pk') => takes list of field values and field_name returns dict
     print(Author.objects.in_bulk([1, 2]))
+
+
+    # latest(*fields) => returns the latest obj in table based on fields
+    print(Entry.objects.latest('pub_date'))
