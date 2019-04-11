@@ -292,5 +292,9 @@ if __name__ == '__main__':
     # earliest(*fields) => works like latest bust with change of direction
 
     # first() => returns first obj matched by the QS
-    #  
     print(Entry.objects.order_by('authors', 'pub_date').first())
+
+    # aggregate(*args, **kwargs) => returns dict of aggregate values(avs, sums
+    print(Blog.objects.aggregate(Count('entry')))
+    # controllling the name of of aggregation value by using a **kwarg
+    print(Blog.objects.aggregate(number_of_entries=Count('entry')))
