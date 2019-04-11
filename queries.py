@@ -331,27 +331,30 @@ if __name__ == '__main__':
     print(Author.objects.get(email__contains='LOIS@GMAIL.COM'))
 
 
-    # in => in a given iterable 
+    # in => in a given iterable
     print(Author.objects.filter(id__in=[1,2,3]))
 
 
     # gt greater than
     print(Author.objects.filter(id__gt=1))
-    
-    # gte greater than or equal to 
+
+    # gte greater than or equal to
     print(Author.objects.filter(id__gte=1))
-    
+
     # lt  => less than
     print(Author.objects.filter(id__lt=4))
-    
-    
+
+
     # lte  => less than or eqaul to
     print(Author.objects.filter(id__lte=4))
 
 
     # startswith
     print(Blog.objects.filter(name__startswith='Beat'))
+
+
+    # endswith => ends with
+    print(Blog.objects.filter(name__endswith='log'))
     
-    
-    # istartswith => case insensitive starts-with
-    print(Blog.objects.filter(name__istartswith='BEAT'))
+    # iendswith => case nssensitive ends with
+    print(Blog.objects.filter(name__iendswith='Log'))
