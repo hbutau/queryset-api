@@ -422,3 +422,6 @@ if __name__ == '__main__':
 
     # aggregation => Min(expressin, output_field=FloatField(),filter=None,**extra)
     print(Entry.objects.aggregate(Sum('rating')))
+
+    # aggregation => Variance(expressin, sample=False,filter=None,**extra)
+    print(Entry.objects.aggregate(Sum('rating')))
