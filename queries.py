@@ -8,7 +8,7 @@ import pytest
 django.setup()
 
 from django.db.models import Count, Avg, Max, Min, Sum
-from django.db.models import Q
+from django.db.models import Q, Prefetch
 
 from blog.models import Entry, Blog, Author
 from pizza.models import Topping, Pizza, Restaurant, Topping
@@ -425,7 +425,11 @@ if __name__ == '__main__':
 
     # aggregation => Variance(expressin, sample=False,filter=None,**extra)
     print(Entry.objects.aggregate(Sum('rating')))
-    
+
     # Q objects
     print(Author.objects.filter(Q(email='lois@gmail') | Q(email='hbutau@example.com')))
+
+
+    # Prefetch objects
+    print(Topping.objects.prefetch_related(Prefetch('pizza_set')).all())
 
