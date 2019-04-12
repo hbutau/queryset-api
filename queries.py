@@ -401,4 +401,7 @@ if __name__ == '__main__':
     print(Entry.objects.filter(pub_date__isnull=True))
 
 
-    print(Entry.objects.get(headline__regex=r'^(Be?)'))
+    print(Entry.objects.get(headline__regex=r'^(Be?)+'))
+
+    # iregex => case insensitive regex expression
+    print(Entry.objects.get(headline__iregex=r'^(bE?)+'))
