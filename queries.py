@@ -7,7 +7,7 @@ import django
 import pytest
 django.setup()
 
-from django.db.models import Count, Avg, Max
+from django.db.models import Count, Avg, Max, Min, Sum
 from django.db.models import Q
 
 from blog.models import Entry, Blog, Author
@@ -416,3 +416,9 @@ if __name__ == '__main__':
 
     # aggregation => Max(expressin, output_field=FloatField(),filter=None,**extra)
     print(Entry.objects.aggregate(Max('rating')))
+
+    # aggregation => Min(expressin, output_field=FloatField(),filter=None,**extra)
+    print(Entry.objects.aggregate(Min('rating')))
+
+    # aggregation => Min(expressin, output_field=FloatField(),filter=None,**extra)
+    print(Entry.objects.aggregate(Sum('rating')))
