@@ -400,3 +400,5 @@ if __name__ == '__main__':
     # isnull => takes either True or False
     print(Entry.objects.filter(pub_date__isnull=True))
 
+
+    print(Entry.objects.get(headline__regex=r'^(Be?)'))
