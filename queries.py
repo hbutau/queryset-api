@@ -408,5 +408,5 @@ if __name__ == '__main__':
     print(Entry.objects.get(headline__iregex=r'^(bE?)+'))
 
 
-    # aggregation => Avg
+    # aggregation => Avg(expressin, output_field=FloatField(),filter=None,**extra)
     print(Entry.objects.aggregate(Avg('rating')))
