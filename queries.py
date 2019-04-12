@@ -392,6 +392,11 @@ if __name__ == '__main__':
     print(Entry.objects.filter(pub_date__quarter=2))
 
     # time
-    print(Entry.objects.filter(pub_date__time=datetime.time(14, 30)))
+    # print(Entry.objects.filter(pub_date__time=datetime.time(14, 30)))
 
+    # hour
+    # print(Entry.objecs.filter(pub_date__hour__lt=23))
+
+    # isnull => takes either True or False
+    print(Entry.objects.filter(pub_date__isnull=True))
 
