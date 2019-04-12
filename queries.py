@@ -410,3 +410,7 @@ if __name__ == '__main__':
 
     # aggregation => Avg(expressin, output_field=FloatField(),filter=None,**extra)
     print(Entry.objects.aggregate(Avg('rating')))
+
+
+    # aggregate with Count()
+    print(Author.objects.aggregate(Count('email')))
