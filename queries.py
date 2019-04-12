@@ -7,9 +7,8 @@ import django
 import pytest
 django.setup()
 
-from django.db.models import Count
+from django.db.models import Count, Avg, Max
 from django.db.models import Q
-from django.db.models import Avg 
 
 from blog.models import Entry, Blog, Author
 from pizza.models import Topping, Pizza, Restaurant, Topping
@@ -414,3 +413,6 @@ if __name__ == '__main__':
 
     # aggregate with Count()
     print(Author.objects.aggregate(Count('email')))
+
+    # aggregation => Max(expressin, output_field=FloatField(),filter=None,**extra)
+    print(Entry.objects.aggregate(Max('rating')))
