@@ -425,3 +425,7 @@ if __name__ == '__main__':
 
     # aggregation => Variance(expressin, sample=False,filter=None,**extra)
     print(Entry.objects.aggregate(Sum('rating')))
+    
+    # Q objects
+    print(Author.objects.filter(Q(email='lois@gmail') | Q(email='hbutau@example.com')))
+
