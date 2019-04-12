@@ -9,6 +9,7 @@ django.setup()
 
 from django.db.models import Count
 from django.db.models import Q
+from django.db.models import Avg 
 
 from blog.models import Entry, Blog, Author
 from pizza.models import Topping, Pizza, Restaurant, Topping
@@ -405,3 +406,7 @@ if __name__ == '__main__':
 
     # iregex => case insensitive regex expression
     print(Entry.objects.get(headline__iregex=r'^(bE?)+'))
+
+
+    # aggregation => Avg
+    print(Entry.objects.aggregate(Avg('rating')))
