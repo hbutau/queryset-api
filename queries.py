@@ -1,5 +1,6 @@
 import datetime
 import os
+import pickle
 from collections import OrderedDict
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "querysets.settings")
@@ -23,6 +24,11 @@ if __name__ == '__main__':
 
     entry_list = list(Entry.objects.all())
     print(entry_list)
+    pickled_entry_list = pickle.dumps(entry_list)
+    print(len(pickled_entry_list))
+    unpickled_entry_list = pickle.loads(pickled_entry_list)
+    print('******PRINTING UNPICLED ENTRY_LIST*****')
+    print(unpickled_entry_list)
 
     print(len(Entry.objects.all()))
 
@@ -432,4 +438,5 @@ if __name__ == '__main__':
 
     # Prefetch objects
     print(Topping.objects.prefetch_related(Prefetch('pizza_set')).all())
+    print(Topping.objects.prefetch_related(Prefetch('pizza_set', to_attr='pizzas')).all())
 
